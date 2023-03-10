@@ -110,14 +110,3 @@ yarn
 ```sh
 yarn start
 ```
-
-## Author
-
-👤 **Jusung Kim**
-
-- Website: https://jusungkim.kr/
-- Github: [@jus0k](https://github.com/jus0k)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
