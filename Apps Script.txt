@@ -1,3 +1,4 @@
+#이메일 자동으로 날라오는 코드
 function sendNews() {
   var keyword = "인공지능";
   var url = "https://news.google.com/rss/search?q=" + encodeURIComponent(keyword) + "&hl=ko&gl=KR&ceid=KR:ko";
