@@ -1,0 +1,22 @@
+function sendNews() {
+  var keyword = "인공지능";
+  var url = "https://news.google.com/rss/search?q=" + encodeURIComponent(keyword) + "&hl=ko&gl=KR&ceid=KR:ko";
+  var response = UrlFetchApp.fetch(url);
+  var document = XmlService.parse(response.getContentText());
+  var items = document.getRootElement().getChildren("channel")[0].getChildren("item");
+  
+  var emailBody = "키워드 '" + keyword + "'에 대한 뉴스입니다:<br><br>";
+  for (var i = 0; i < 5; i++) {
+    var title = items[i].getChild("title").getText();
+    var link = items[i].getChild("link").getText();
+    var description = items[i].getChild("description").getText();
+    emailBody += "<a href='" + link + "'>" + title + "</a><br>";
+    emailBody += description + "<br><br>";
+  }
+  
+  MailApp.sendEmail({
+    to: "이메일주소",
+    subject: "인공지능 키워드 뉴스입니다.",
+    htmlBody: emailBody
+  });
+}
